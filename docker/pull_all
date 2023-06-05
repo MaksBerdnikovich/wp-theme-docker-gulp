@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd "$(dirname "$0")/.."
+
+for dir in `ls`; do
+    echo pulling $dir...
+    cd $dir
+    git pull
+    cd ..
+done
+

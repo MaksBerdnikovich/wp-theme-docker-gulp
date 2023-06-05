@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+source common.sh
+
+if [ $# -eq 0 ]; then
+    docker exec --user www-data -ti ${COMPOSE_SYS_PROJECT_NAME}_php_1 bash
+else
+    args="$@"
+    docker exec --user www-data ${COMPOSE_SYS_PROJECT_NAME}_php_1 bash $args
+fi
